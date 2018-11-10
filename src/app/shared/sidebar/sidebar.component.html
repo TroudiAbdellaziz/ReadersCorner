@@ -6,101 +6,73 @@
   <div class="scroll-sidebar">
     <!-- User profile -->
     <div class="user-profile">
-      <!-- User profile image -->
-      <div class="profile-img"> <img src="assets/images/users/profile.png" alt="user" />
-        <!-- this is blinking heartbit-->
-        <div class="notify setpos"> <span class="heartbit"></span> <span class="point"></span> </div>
-      </div>
+
       <!-- User profile text-->
       <div class="profile-text">
-        <a href="#" class="dropdown-toggle u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Markarn
-          Doe <i class="fa fa-angle-down"></i></a>
+        <a href="#" class="dropdown-toggle u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> Sort by
+           <i class="fa fa-angle-down"></i></a>
         <div class="dropdown-menu animated flipInY">
           <!-- text-->
-          <a href="#" class="dropdown-item"><i class="ti-user"></i> My Profile</a>
+          <a href="#" class="dropdown-item"><i class="ti-user"></i> price</a>
           <!-- text-->
-          <a href="#" class="dropdown-item"><i class="ti-wallet"></i> My Balance</a>
+          <a href="#" class="dropdown-item"><i class="ti-wallet"></i> sales</a>
           <!-- text-->
-          <a href="#" class="dropdown-item"><i class="ti-email"></i> Inbox</a>
-          <!-- text-->
-          <div class="dropdown-divider"></div>
-          <!-- text-->
-          <a href="#" class="dropdown-item"><i class="ti-settings"></i> Account Setting</a>
-          <!-- text-->
-          <div class="dropdown-divider"></div>
-          <!-- text-->
-          <a href="#" class="dropdown-item"><i class="fa fa-power-off"></i> Logout</a>
-          <!-- text-->
+          <a href="#" class="dropdown-item"><i class="ti-email"></i> release date</a>
+
         </div>
       </div>
     </div>
     <!-- End User profile text-->
+    <div class ="nav-devider"></div>
+    <div class ="nav-devider"></div>
+    <div class="user-profile">
+
+      <!-- User profile text-->
+      <div class="profile-text">
+        <a href="#" class="dropdown-toggle u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> Filter by
+           <i class="fa fa-angle-down"></i></a>
+        <div class="dropdown-menu animated flipInY">
+          <!-- text-->
+          <a href="#" class="dropdown-item"><i class="ti-user"></i> genre</a>
+          <!-- text-->
+          <a href="#" class="dropdown-item"><i class="ti-wallet"></i> language</a>
+          <!-- text-->
+          <a href="#" class="dropdown-item"><i class="ti-email"></i> author</a>
+
+        </div>
+      </div>
+      </div>
     <!-- Sidebar navigation-->
     <nav class="sidebar-nav">
       <ul id="sidebarnav">
         <li class="nav-devider"></li>
-        <li class="nav-small-cap">PERSONAL</li>
         <li [class.active]="showMenu === 'start'">
           <a routerLink="/starter" (click)="addExpandClass('start')" [routerLinkActive]="['router-link-active']"><i class="icon-speedometer"></i><span
-              class="hide-menu">Starter Page</span></a>
-        </li>
-        <li class="nav-small-cap">UI COMPONENTS</li>
-        <li>
-          <a routerLink="/accordion" (click)="addExpandClass('component')" [routerLinkActive]="['router-link-active']"><i
-              class="mdi mdi-file"></i><span class="hide-menu">Accordion</span></a>
+              class="hide-menu">Home</span></a>
         </li>
         <li>
-          <a routerLink="/alert" (click)="addExpandClass('component')" [routerLinkActive]="['router-link-active']"><i class="mdi mdi-file"></i><span
-              class="hide-menu">Alert</span></a>
+          <a routerLink="/onsale" (click)="addExpandClass('component')" [routerLinkActive]="['router-link-active']"><i
+              class="mdi mdi-equal"></i><span class="hide-menu">Books on sale</span></a>
         </li>
         <li>
-          <a routerLink="/carousel" (click)="addExpandClass('component')" [routerLinkActive]="['router-link-active']"><i
-              class="mdi mdi-file"></i><span class="hide-menu">Carousel</span></a>
+          <a routerLink="/ebook" (click)="addExpandClass('component')" [routerLinkActive]="['router-link-active']"><i class="mdi mdi-message-bulleted"></i><span
+              class="hide-menu">e-Books</span></a>
         </li>
         <li>
-          <a routerLink="/datepicker" (click)="addExpandClass('component')" [routerLinkActive]="['router-link-active']"><i
-              class="mdi mdi-file"></i><span class="hide-menu">Datepicker</span></a>
+          <a routerLink="/readonline" (click)="addExpandClass('component')" [routerLinkActive]="['router-link-active']"><i
+              class="mdi mdi-view-carousel"></i><span class="hide-menu">Read online (new)</span></a>
         </li>
         <li>
-          <a routerLink="/dropdown" (click)="addExpandClass('component')" [routerLinkActive]="['router-link-active']"><i
-              class="mdi mdi-file"></i><span class="hide-menu">Dropdown - Collapse</span></a>
+          <a routerLink="/login" (click)="addExpandClass('component')" [routerLinkActive]="['router-link-active']"><i
+              class="mdi mdi-calendar-clock"></i><span class="hide-menu">Log in</span></a>
         </li>
         <li>
-          <a routerLink="/modal" (click)="addExpandClass('component')" [routerLinkActive]="['router-link-active']"><i class="mdi mdi-file"></i><span
-              class="hide-menu">Modal</span></a>
+          <a routerLink="/register" (click)="addExpandClass('component')" [routerLinkActive]="['router-link-active']"><i
+              class="mdi mdi-arrange-bring-to-front"></i><span class="hide-menu">Register</span></a>
         </li>
         <li>
-          <a routerLink="/pagination" (click)="addExpandClass('component')" [routerLinkActive]="['router-link-active']"><i
-              class="mdi mdi-file"></i><span class="hide-menu">Pagination</span></a>
-        </li>
-        <li>
-          <a routerLink="/poptool" (click)="addExpandClass('component')" [routerLinkActive]="['router-link-active']"><i class="mdi mdi-file"></i><span
-              class="hide-menu">Popover & Tooltip</span></a>
-        </li>
-        <li>
-          <a routerLink="/progressbar" (click)="addExpandClass('component')" [routerLinkActive]="['router-link-active']"><i
-              class="mdi mdi-file"></i><span class="hide-menu">Progressbar</span></a>
-        </li>
-        <li>
-          <a routerLink="/rating" (click)="addExpandClass('component')" [routerLinkActive]="['router-link-active']"><i class="mdi mdi-file"></i><span
-              class="hide-menu">Ratings</span></a>
-        </li>
-        <li>
-          <a routerLink="/tabs" (click)="addExpandClass('component')" [routerLinkActive]="['router-link-active']"><i class="mdi mdi-file"></i><span
-              class="hide-menu">Tabs</span></a>
-        </li>
-        <li>
-          <a routerLink="/timepicker" (click)="addExpandClass('component')" [routerLinkActive]="['router-link-active']"><i
-              class="mdi mdi-file"></i><span class="hide-menu">Timepicker</span></a>
-        </li>
-        <li>
-          <a routerLink="/typehead" (click)="addExpandClass('component')" [routerLinkActive]="['router-link-active']"><i
-              class="mdi mdi-file"></i><span class="hide-menu">Typehead</span></a>
-        </li>
-
-        <li class="m-t-40 p-20 upgrade-btn">
-          <a href="https://wrappixel.com/templates/elite-angular-admin/" target="_blank" class="btn btn-danger text-white">Upgrade
-            To Pro</a>
+          <a routerLink="/contact" (click)="addExpandClass('component')" [routerLinkActive]="['router-link-active']"><i class="mdi mdi-tablet"></i><span
+              class="hide-menu">contact us</span></a>
         </li>
       </ul>
     </nav>
@@ -108,6 +80,3 @@
   </div>
   <!-- End Sidebar scroll-->
 </aside>
-<!-- ============================================================== -->
-<!-- End Left Sidebar - style you can find in sidebar.scss  -->
-<!-- ============================================================== -->

@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+.navbar-header .navbar-brand {
+	color: #fff;
+	font-size: 16px;
+	text-transform: uppercase;
+	font-weight: 500;
+	letter-spacing: 2px;
+}
+
+.navbar-header .navbar-brand span {
+	color: #30a5ff;
+}

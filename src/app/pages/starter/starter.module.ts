@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
-
+import {BookComponent} from '../component/book/book.component'
 import { StarterComponent } from './starter.component';
 
 
@@ -21,6 +21,6 @@ const routes: Routes = [{
     	CommonModule, 
     	RouterModule.forChild(routes)
     ],
-	declarations: [StarterComponent]
+	declarations: [StarterComponent,BookComponent]
 })
 export class StarterModule { }
