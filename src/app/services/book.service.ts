@@ -12,17 +12,8 @@ export class BookService {
 
 return this.http.get<any>('http://localhost:3000/books/getBooks');
   }
-  addBook(){
-    let data ={
-      title:"The stranger",
-      author:'Albert Camus',
-      price:15,
-      nbSells:50,
-      language: ["fr","en"],
-      picture: 'thestranger.jpg',
-      soldOut: false,
-      description:"The title character of The Stranger is Meursault, a Frenchman who lives in Algiers (a pied-noir). The novel is famous for its first lines: “Mother died today. Or maybe it was yesterday, I don’t know.” They capture Meursault’s anomie briefly and brilliantly."
-      };
+/*  addBook(){
+    let data ={id:"5bf69e31d612007947d4888d", num:250};
    return this.http.post<any>('http://localhost:3000/books/book',data);
-  }
+  }*/
 }

@@ -13,7 +13,16 @@ const routes: Routes = [{
         urls: [{title: 'Dashboard',url: '/'},{title: 'Starter Page'}]
     },
 	component: StarterComponent
-}];
+},
+{
+	path: ':sort',
+	data: {
+        title: 'Starter Page',
+        urls: [{title: 'Dashboard',url: '/'},{title: 'Starter Page'}]
+    },
+	component: StarterComponent
+}
+];
 
 @NgModule({
 	imports: [

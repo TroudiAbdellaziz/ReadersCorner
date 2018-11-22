@@ -6,7 +6,7 @@ const routes: Routes = [
     {
         path: '', component: PageComponent,
         children: [
-            { path: 'starter', loadChildren: './starter/starter.module#StarterModule' },
+            { path: 'starter', loadChildren: './starter/starter.module#StarterModule' }
                 ]
     }
 ];
