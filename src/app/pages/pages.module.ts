@@ -8,6 +8,8 @@ import { SIDEBAR_TOGGLE_DIRECTIVES } from '../shared/sidebar.directive';
 import { NavigationComponent } from '../shared/header-navigation/navigation.component';
 import { SidebarComponent } from '../shared/sidebar/sidebar.component';
 import { BreadcrumbComponent } from '../shared/breadcrumb/breadcrumb.component';
+import { LoginComponent } from './component/login/login.component';
+import { SignupComponent } from './component/signup/signup.component';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { BreadcrumbComponent } from '../shared/breadcrumb/breadcrumb.component';
         NavigationComponent,
         SidebarComponent,
         BreadcrumbComponent,
-        SIDEBAR_TOGGLE_DIRECTIVES
+        SIDEBAR_TOGGLE_DIRECTIVES,
+        LoginComponent,
+        SignupComponent
     ]
 })
 export class PagesModule { }

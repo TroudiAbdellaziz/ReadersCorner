@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import {BookComponent} from '../component/book/book.component'
 import { StarterComponent } from './starter.component';
-
-
+import {LoginComponent} from '../component/login/login.component';
+import {SignupComponent} from '../component/signup/signup.component';
 const routes: Routes = [{
 	path: '',
 	data: {
@@ -26,7 +26,8 @@ const routes: Routes = [{
 
 @NgModule({
 	imports: [
-    	FormsModule,
+		FormsModule,
+		ReactiveFormsModule,
     	CommonModule, 
     	RouterModule.forChild(routes)
     ],
