@@ -16,6 +16,7 @@ export class StarterComponent implements AfterViewInit {
 		let self = this;
 		this.service.getBook().subscribe((res) => {
 			self.books = res.lists;
+			console.log(self.books);
 			self.formingData();
 		});
 	}

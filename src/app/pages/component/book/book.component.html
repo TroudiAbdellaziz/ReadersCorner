@@ -5,7 +5,7 @@
           <h4 class="card-title">{{book.title}}</h4>
           <h5 class="card-title">By: <span style="color:lightseagreen">{{book.author}}</span></h5>
           <p class="card-text">{{book.description}}</p>
-          <a  *ngIf="!book.soldOut" class="btn btn-primary">Buy ({{book.price}}$)</a>
+          <a  *ngIf="!book.soldOut" [routerLink]="['/order',book._id]" class="btn btn-primary">Buy ({{book.price}}$)</a>
           <a  *ngIf="book.soldOut"  class="btn btn-danger disabled" aria-disabled="true">Sold Out</a>
           <ul *ngFor="let lan of book.language" style="display: inline;">
             <li class="btn btn-info btn-sm" >{{lan}}</li>

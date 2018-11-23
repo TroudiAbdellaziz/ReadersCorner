@@ -12,6 +12,12 @@ export class BookService {
 
 return this.http.get<any>('http://localhost:3000/books/getBooks');
   }
+
+  getBookById(id){
+    //  return this.http.get<any>('http://54.38.33.183:8081/api/livres');
+    
+    return this.http.get<any>('http://localhost:3000/books/getBookById/'+id);
+      }
 /*  addBook(){
     let data ={id:"5bf69e31d612007947d4888d", num:250};
    return this.http.post<any>('http://localhost:3000/books/book',data);

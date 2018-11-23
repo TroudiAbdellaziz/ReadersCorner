@@ -4,13 +4,15 @@ import { PageComponent } from './pages.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import {LoginComponent} from '../pages/component/login/login.component';
 import {SignupComponent} from '../pages/component/signup/signup.component';
+import {OrderComponent} from '../pages/component/order/order.component';
 const routes: Routes = [
     {
         path: '', component: PageComponent,
         children: [
             { path: 'starter', loadChildren: './starter/starter.module#StarterModule' },
             { path: 'login', component: LoginComponent},
-            { path: 'signup', component: SignupComponent}
+            { path: 'signup', component: SignupComponent},
+            { path: 'order/:id', component: OrderComponent}
                 ]
     }
     

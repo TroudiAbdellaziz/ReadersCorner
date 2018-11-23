@@ -60,13 +60,17 @@
           <a routerLink="/readonline" (click)="addExpandClass('component')" [routerLinkActive]="['router-link-active']"><i
               class="mdi mdi-view-carousel"></i><span class="hide-menu">Read online (new)</span></a>
         </li>
-        <li>
+        <li *ngIf="!isConnected">
           <a routerLink="/login" (click)="addExpandClass('component')" [routerLinkActive]="['router-link-active']"><i
               class="mdi mdi-calendar-clock"></i><span class="hide-menu">Log in</span></a>
         </li>
-        <li>
+        <li *ngIf="!isConnected">
           <a routerLink="/signup" (click)="addExpandClass('component')" [routerLinkActive]="['router-link-active']"><i
               class="mdi mdi-arrange-bring-to-front"></i><span class="hide-menu">Register</span></a>
+        </li>
+        <li *ngIf="isConnected">
+          <a routerLink="/starter"(click)="logout()" (click)="addExpandClass('component')"><i
+              class="mdi mdi-arrange-bring-to-front"></i><span class="hide-menu">Log out</span></a>
         </li>
         <li>
           <a routerLink="/contact" (click)="addExpandClass('component')" [routerLinkActive]="['router-link-active']"><i class="mdi mdi-tablet"></i><span

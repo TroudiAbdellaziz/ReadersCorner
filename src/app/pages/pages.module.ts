@@ -10,6 +10,7 @@ import { SidebarComponent } from '../shared/sidebar/sidebar.component';
 import { BreadcrumbComponent } from '../shared/breadcrumb/breadcrumb.component';
 import { LoginComponent } from './component/login/login.component';
 import { SignupComponent } from './component/signup/signup.component';
+import { OrderComponent } from './component/order/order.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { SignupComponent } from './component/signup/signup.component';
         BreadcrumbComponent,
         SIDEBAR_TOGGLE_DIRECTIVES,
         LoginComponent,
-        SignupComponent
+        SignupComponent,
+        OrderComponent
     ]
 })
 export class PagesModule { }

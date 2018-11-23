@@ -9,13 +9,14 @@ export class SidebarComponent implements AfterViewInit {
   isActive = true;
   showMenu = '';
   showSubMenu = '';
-
+  isConnected:String=localStorage.getItem("connected");
   addExpandClass(element: any) {
     if (element === this.showMenu) {
       this.showMenu = '0';
     } else {
       this.showMenu = element;
     }
+    this.isConnected=localStorage.getItem("connected");
   }
   addActiveClass(element: any) {
     if (element === this.showSubMenu) {
@@ -26,6 +27,11 @@ export class SidebarComponent implements AfterViewInit {
   }
   eventCalled() {
     this.isActive = !this.isActive;
+  }
+  logout(){
+    this.isConnected=null;
+    localStorage.removeItem("user");
+    localStorage.removeItem("connected");
   }
 
   ngAfterViewInit() {
