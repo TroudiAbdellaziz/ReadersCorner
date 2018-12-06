@@ -6,6 +6,7 @@ import {BookComponent} from '../component/book/book.component'
 import { StarterComponent } from './starter.component';
 import {LoginComponent} from '../component/login/login.component';
 import {SignupComponent} from '../component/signup/signup.component';
+import { LoginModalComponent } from '../component/login-modal/login-modal.component';
 const routes: Routes = [{
 	path: '',
 	data: {
@@ -31,6 +32,9 @@ const routes: Routes = [{
     	CommonModule, 
     	RouterModule.forChild(routes)
     ],
-	declarations: [StarterComponent,BookComponent]
+	declarations: [StarterComponent,
+		BookComponent
+		
+		]
 })
 export class StarterModule { }

@@ -1,0 +1,42 @@
+<div class="modal hide fade" data-backdrop="false" id="exampleModal5" tabindex="-1" role="dialog" style="z-index:1" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+
+<div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLongTitle">Login</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="form" (ngSubmit)="onSubmit(form.value.email,form.value.password)">
+        <fieldset>
+          <div class="form-group">
+            <input [formControl]="email" class="form-control" placeholder="E-mail" type="email" autofocus="">
+          </div>
+          <div class="form-group">
+            <input [formControl]="password" class="form-control" placeholder="Password" type="password" value="">
+          </div>
+          <div class="checkbox">
+            <label>
+              <input name="remember" type="checkbox" value="Remember Me">Remember Me
+            </label>
+          </div>
+          <button type="submit" [disabled]="!form.valid" class="btn btn-primary">Login</button>
+        </fieldset>
+        <div class="col-xs-12" *ngIf="errored">
+          <p style="padding-top: 10px; color: red;">
+            {{ error }}
+          </p>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <span>you don't have an account? </span>
+      <button type="button" class="btn btn-success" (click)="openRegister()" data-toggle="modal" data-target="#exampleModal8">sign up</button>
+    </div>
+
+  </div>
+</div>
+</div>
+<app-signup></app-signup>

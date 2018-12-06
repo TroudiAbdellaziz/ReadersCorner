@@ -1,19 +1,25 @@
-import { Component, OnInit, ChangeDetectorRef} from '@angular/core';
-
+import { Component, OnInit, ChangeDetectorRef, Input,Output, EventEmitter} from '@angular/core';
 import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/forms';
 import {UserService} from '../../../services/user.service'
 import { Router } from '@angular/router';
+import * as $ from 'jquery';
 @Component({
-  selector: 'ap-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-login-modal',
+  templateUrl: './login-modal.component.html',
+  styleUrls: ['./login-modal.component.css']
 })
-export class LoginComponent implements OnInit {
+
+export class LoginModalComponent implements OnInit {
   public form:FormGroup;
   public email:AbstractControl;
   public password:AbstractControl;
   public errored:boolean=false;
   public error:String="";
+
+  @Input()
+  connect:boolean ;
+  
+  @Output() userConnected = new EventEmitter<boolean>();
   constructor(private fb:FormBuilder,
               private userService:UserService,
               private router:Router,
@@ -21,8 +27,7 @@ export class LoginComponent implements OnInit {
             ) {
     this.form = fb.group({
       'email': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
-      'type': [''],
-      'password': ['', Validators.compose([Validators.required, Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\w{6,}$/)])]
+      'password': ['', Validators.compose([Validators.required, Validators.minLength(6)])]
     });
     this.email = this.form.controls['email'];
     this.password = this.form.controls['password'];
@@ -41,9 +46,14 @@ onSubmit(email:string, password:string){
   }else {
     localStorage.setItem("user",res.user);
     localStorage.setItem("connected","true");
-    this.changeDetector.markForCheck();             
-    this.router.navigate(['/starter']);
+    this.changeDetector.markForCheck();  
+    console.log(this.userConnected.emit(true));
+    $('.modal').hide();
   }
+  
 });
+}
+openRegister(){
+  $('.modal').hide();
 }
 }

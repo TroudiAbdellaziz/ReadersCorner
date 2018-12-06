@@ -8,16 +8,27 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 export class NavigationComponent implements AfterViewInit {
   name: string;
   showHide: boolean;
-
+  public isConnected:Boolean
+  public connect:Boolean=false;
   constructor() {
+    this.isConnected=localStorage.getItem("user")!=null;
     this.showHide = true;
   }
 
   changeShowStatus() {
     this.showHide = !this.showHide;
   }
-
+  changed(ch:boolean){
+    this.isConnected=true;
+  }
+logout(){
+  localStorage.removeItem("user");
+  console.log("logged out");
+  this.isConnected=false;
+}
   ngAfterViewInit() {
+ 
+
     $(function() {
       $('.preloader').fadeOut();
     });

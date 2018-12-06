@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input, Output, EventEmitter } from '@angular/core';
 
 import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/forms';
 import {UserService} from './../../../services/user.service'
 import { Router } from '@angular/router';
+import * as $ from 'jquery';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -17,14 +18,20 @@ export class SignupComponent implements OnInit {
   public cpassword:AbstractControl;
   public errored:boolean = false;
   public error:String='';
+
+  @Input()
+  connect:boolean ;
+  
+  @Output() userConnected = new EventEmitter<boolean>();
+
   constructor(private fb:FormBuilder, private userService:UserService,
               private router:Router) { 
     this.form = fb.group({
-      'fname': ['', Validators.compose([Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])\w{2,}$/)])],
-      'lname': ['', Validators.compose([Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])\w{3,}$/)])],
+      'fname': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
+      'lname': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
       'email': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
-      'password': ['', Validators.compose([Validators.required, Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\w{6,}$/)])],
-      'cpassword': ['', Validators.compose([Validators.required, Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\w{6,}$/)])]
+      'password': ['', Validators.compose([Validators.required, Validators.minLength(6)])],
+      'cpassword': ['', Validators.compose([Validators.required, Validators.minLength(6)])]
     });
     this.fname= this.form.controls['fname'];
     this.lname= this.form.controls['lname'];
@@ -49,8 +56,12 @@ export class SignupComponent implements OnInit {
     }else {
       localStorage.setItem("user",res.user);
       localStorage.setItem("connected","true");
-      this.router.navigate(['/starter']);
+      this.userConnected.emit(true);
+      $('.modal').hide();
     }
   });
+  }
+  openRegister(){
+    $('.modal').hide();
   }
 }

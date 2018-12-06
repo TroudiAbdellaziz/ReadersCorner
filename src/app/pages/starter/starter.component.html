@@ -1,3 +1,46 @@
-<div  *ngIf="updated" class="row">
- <a-book *ngFor=" let book of books" [book]="book"></a-book>
+
+
+
+
+<!-- ============================================================== -->
+<!-- Left Sidebar - style you can find in sidebar.scss  -->
+<!-- ============================================================== -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark " style="margin-top: -41px; margin-right: -30px ; margin-left:-270px" >
+
+    <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+      </form>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+            
+            <li class="nav-item active">
+            
+            <a *ngIf="!path" class="nav-link" routerLink="/">      Books on sale </a>
+            </li>
+            <li class="nav-item active" >
+            <a class="nav-link" routerLink="/connexion">e-books </a>
+            </li>
+            
+            <li class="nav-item active" routerLinkActive="active">
+            <a class="nav-link "  routerLink="/signin">Read online</a>
+            </li>
+            <li class="nav-item active" routerLinkActive="active">
+                <a class="nav-link "  routerLink="/signin">contact us</a>
+              </li>
+            </ul>
+            
+            </div>
+</nav>
+
+
+<div *ngIf="updated" class="row">
+  <a-book *ngFor=" let book of books" [book]="book"></a-book>
 </div>
