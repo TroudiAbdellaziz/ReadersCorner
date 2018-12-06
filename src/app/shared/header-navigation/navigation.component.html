@@ -1,37 +1,130 @@
-<header class="topbar">
-    <nav class="navbar top-navbar navbar-expand-md navbar-light" style="background-color: lightgrey">
-        <!-- ============================================================== -->
-        <!-- Logo -->
-        <!-- ============================================================== -->
-        <div class="navbar-header">
-            <a class="navbar-brand" href="index.html">
-                <!-- Logo icon -->
-                <b>
-                     
-                              <span>Readers </span>Corner
-                                    
-                            
-                </b>
-                
-            </a>
-        </div>
-        <!-- ============================================================== -->
-        <!-- End Logo -->
-        <!-- ============================================================== -->
-        <div class="navbar-collapse">
-            <!-- ============================================================== -->
-            <!-- toggle and nav items -->
-            <!-- ============================================================== -->
-            <ul class="navbar-nav mr-auto mt-md-0">
-                <!-- This is  -->
-                <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="icon-arrow-left-circle ti-menu"></i></a> </li>
-                
-                <li>
-                    <form role="search" class="app-search hidden-sm-down">
-                        <input type="text" placeholder="Search..." class="form-control"> <a href=""><i class="fa fa-search"></i></a> </form>
+<!--
+<nav class="navbar navbar-light fixed-top " style="background-color:turquoise">
+        <form class="form-inline my-2 my-lg-0 mr-auto" style="padding-left: 100px">
+          <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-white btn-md my-2 my-sm-0 ml-3" type="submit">Search</button>
+        </form>
+        <i class="fa fa-bell" style="font-size:24px"></i>
+        <a class="nav-item" routerLink="/">Profile</a>
+
+        <button class="btn btn-outline-white btn-md my-2 my-sm-0 ml-3" type="submit">Settings</button>
+
+        <button class="btn btn-outline-white btn-md my-2 my-sm-0 ml-3" type="submit">Logout</button>
+      </nav>
+
+    -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" style="color: white;">Social Biking</a>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item dropdown" >
+                  <a class="nav-link dropdown-toggle" href="#" (click)="eventClicked()" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fa fa-bell"  style="font-size:24px; color:gray"></i>
+                  </a>
+                  <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" data-toggle="modal" data-target="#exampleModal5" href="#">Bike racing is happening nearby,
+                      <br>
+                       you may be interested!</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" data-toggle="modal" data-target="#exampleModal6" href="#">track cycling is happening nearby,
+                      <br>
+                      you may be interested!</a>
+                  </div>
                 </li>
-            </ul>
+              <li class="nav-item dropdown" style="padding-top: 10px;">
+
+                </li>
+                <li class="cercle-notice" *ngIf="!loaded" id="test">
+                    2
+                </li>
+            <li class="nav-item active">
+              <a *ngIf="path" class="nav-link" routerLink="/profile">      Siwar </a>
+              <a *ngIf="!path" class="nav-link" routerLink="/">      Home </a>
+            </li>
+            <li class="nav-item active" >
+              <a class="nav-link" routerLink="/connexion">Settings </a>
+            </li>
+
+            <li class="nav-item active" routerLinkActive="active">
+              <a class="nav-link "  routerLink="/signin">Logout</a>
+            </li>
+          </ul>
 
         </div>
-    </nav>
-</header>
+      </nav>
+
+
+        
+      <div class="modal fade" id="exampleModal6" tabindex="-1" style="z-index:999999"  role="dialog" aria-labelledby="exampleModalCenterTitle1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Track cycling</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <h1>come to our track cycling event !!!</h1>
+                <h6>Get direction</h6>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8047.369167078832!2d10.221188094135139!3d36.828097160085974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd3519b72497bd%3A0xa46121feb8c83a55!2sCarthage+Land+Les+Berges+du+Lac!5e0!3m2!1sen!2stn!4v1543137724429" width="100%" height="300px" frameborder="0" style="border:0" allowfullscreen></iframe>
+                 <p> this event is a track cycling in which we can have a lot of fun and know each other in the wonderful montain </p>
+              </div>
+            <div class="modal-footer">
+                <div style=" margin: 10px">
+                  <img src="../../../assets/users.png" style="width: 30px; height:30px;"> 45
+                </div>
+              <button type="button" class="btn btn-success" data-dismiss="modal"> i am coming </button>
+              <button type="button" class="btn btn-primary">i am interested</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal"> i'am ot interested</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+              
+            
+          </div>
+        </div>
+      </div>
+
+        
+  <div class="modal hide fade" data-backdrop="false" id="exampleModal5" tabindex="-1" role="dialog" style="z-index:1" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered"  role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Bike racing</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h1>come to our bike racing event !!!</h1>
+            <h6>Get direction</h6>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9031.783802327865!2d10.179349317064293!3d36.83725986926483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd349a1ee5496f%3A0x2d5951318ce151d5!2sStade+Olympique!5e0!3m2!1sen!2stn!4v1543137474181" 
+          width="100%" height="300px" 
+          frameborder="0" 
+          style="border:0" 
+          allowfullscreen>
+          </iframe> 
+          <p> this event is  bike racing in which we can have a lot of fun and know each other in the wonderful montain </p>
+          
+        </div>
+        <div class="modal-footer">
+            <div style=" margin: 10px">
+              <img src="../../../assets/users.png" style="width: 30px; height:30px;"> 105
+            </div>
+            <button type="button" class="btn btn-success" data-dismiss="modal"> i am coming </button>
+            <button type="button" class="btn btn-primary">i am interested</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal"> i'am not </button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+              
+        </div>
+      </div>
+    </div>
