@@ -1,0 +1,69 @@
+<div class="container">
+    <div class="panel panel-success" *ngIf="done">
+        <h2 style="padding-top: 10px; color: green;">
+          Your order has been successfully submitted.
+          You'll get an email with your shipment details in two work days.
+        </h2>
+      </div>
+    <div class="row" >
+        <!-- You can make it whatever width you want. I'm making it full width
+             on <= small devices and 4/12 page width on >= medium devices -->
+              <div class="col-xs-12 col-md-4">
+                <div class="login-panel panel panel-default">
+                  <div class="row display-tr" >
+                    <h3 class="panel-title display-td" >Payment Details</h3>
+                    <div class="display-td" >                            
+                        <img class="img-responsive pull-right" src="http://i76.imgup.net/accepted_c22e0.png">
+                    </div>
+                </div>  
+                  <div class="panel-body">
+                    <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+                      <fieldset>
+                        <div class="form-group">
+                            <label for="cardNum">CARD NUMBER</label>
+                          <input [formControl]="cardNum" class="form-control" placeholder="Valid Card Number" type="text" autofocus="">
+                        </div>
+                        <div class="form-group">
+                            <label for="cardExpiry"><span class="hidden-xs">EXPIRATION </span>DATE</label>
+                          <input [formControl]="expiration" class="form-control" placeholder="MM / YY" type="text" value="">
+                        </div>
+                        <div class="form-group">
+                            <label for="cvcode"><span class="hidden-xs">CV </span>CODE</label>
+                          <input [formControl]="cvcode" class="form-control" placeholder="CVC" type="text" value="">
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                          <textarea [formControl]="address" class="form-control" type="text" value="">
+                            </textarea>
+                        </div>
+                        <button  type="submit" class="btn btn-primary">Procede payment</button>
+                      </fieldset>
+                      <div class="col-xs-12" *ngIf="errored">
+                          <p style="padding-top: 10px; color: red;">
+                            {{ error }}
+                          </p>
+                        </div>
+
+                    </form>
+                  </div>
+                </div>
+              </div><!-- /.col-->
+        <div class="col-xs-12 col-md-4" >
+          <div class="card" style="width: 18rem;" *ngIf="loaded">
+            <img class="card-img-top" src="/assets/images/{{book.picture}}" alt="Card image cap">
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-4" >
+          <div class="card" style="width: 18rem;" *ngIf="loaded">
+            <div class="card-body">
+              <h4 class="card-title">{{book.title}}</h4>
+              <h5 class="card-title">By: <span style="color:lightseagreen">{{book.author}}</span></h5>
+              <p class="card-text">{{book.description}}</p>
+              <ul *ngFor="let lan of book.language" style="display: inline;">
+                <li class="btn btn-info btn-sm" >{{lan}}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        </div>
+        </div>
