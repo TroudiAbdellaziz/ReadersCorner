@@ -8,20 +8,19 @@
 }
 
 .navbar-header .navbar-brand span {
-	color: #30a5ff;
+	color: #133249;
 }
-body {
+
 	
-	font-family: "Poppins", sans-serif;
-	
-	overflow-x: hidden;
-	color: #686868;
-	font-weight: 300;
-	
-	
-}
-  
+
 body{
 	background-color: black !important;
 	font-family: Trade Gothic !important;
 }
+
+.navbar-nav.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+}
+
