@@ -14,4 +14,7 @@ export class OrderService {
     
      return this.http.post<any>('http://localhost:3000/cards/getCard',values);
   }
+  proceedPayment(values:any){
+    return this.http.post<any>('http://localhost:3000/orders/order',values);
+  }
 }

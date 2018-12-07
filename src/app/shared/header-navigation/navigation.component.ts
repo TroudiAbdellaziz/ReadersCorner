@@ -37,6 +37,10 @@ export class NavigationComponent implements AfterViewInit {
         localStorage.setItem("orders",object.id);
       }
     });
+    this.cartService.notification.subscribe(object =>{
+      console.log("here");
+      $('loginLi').data('toggle');
+    });
   }
   changed2(ch: boolean) {
     this.isConnected = true;

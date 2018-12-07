@@ -1,67 +1,140 @@
-<div class="container">
-    <div class="panel panel-success" *ngIf="done">
-        <h2 style="padding-top: 10px; color: green;">
-          Your order has been successfully submitted.
-          You'll get an email with your shipment details in two work days.
-        </h2>
-      </div>
-    <div class="row" >
-        <!-- You can make it whatever width you want. I'm making it full width
-             on <= small devices and 4/12 page width on >= medium devices -->
-              <div class="col-xs-12 col-md-4">
-                <div class="login-panel panel panel-default">
-                  <div class="row display-tr" >
-                    <h3 class="panel-title display-td" >Payment Details</h3>
-                    <div class="display-td" >                            
-                        <img class="img-responsive pull-right" src="http://i76.imgup.net/accepted_c22e0.png">
+
+
+        <div class="row no-gutters"  >
+          <div class="col-6 col-md-4">
+            <div style="height: 500px;width: 350px;margin-top: 50px; margin-left: 50px;margin-top: 50px">
+                <div class="card card-pricing popular shadow text-center px-3 mb-4">
+                  <span class="h6 w-60 mx-auto px-4 py-1 rounded-bottom text-white " style="background-color: black;margin-top: 5px; width: 100%">SUMMARY</span>
+                 
+                  <div class="card-body pt-0">
+                    <div class="row"style="margin-top:50px;font-size: 20px">
+                      <div class="col-12 col-sm-6 col-md-8">
+                      <ul class="list-unstyled mb-4" style="text-align: left;">
+                          <li>Subtotal</li>
+                          <li>Estimated Shipping  </li>
+                          <li>TOTAL</li>
+                          
+                      </ul>
                     </div>
-                </div>  
-                  <div class="panel-body">
-                    <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
-                      <fieldset>
-                        <div class="form-group">
-                            <label for="cardNum">CARD NUMBER</label>
-                          <input [formControl]="cardNum" class="form-control" placeholder="Valid Card Number" type="text" autofocus="">
-                        </div>
-                        <div class="form-group">
-                            <label for="cardExpiry"><span class="hidden-xs">EXPIRATION </span>DATE</label>
-                          <input [formControl]="expiration" class="form-control" placeholder="MM / YY" type="text" value="">
-                        </div>
-                        <div class="form-group">
-                            <label for="cvcode"><span class="hidden-xs">CV </span>CODE</label>
-                          <input [formControl]="cvcode" class="form-control" placeholder="CVC" type="text" value="">
-                        </div>
-                        <div class="form-group">
-                            <label for="address">Address</label>
-                          <textarea [formControl]="address" class="form-control" type="text" value="">
-                            </textarea>
-                        </div>
-                        <button  type="submit" class="btn btn-primary">Procede payment</button>
-                      </fieldset>
-                      <div class="col-xs-12" *ngIf="errored">
-                          <p style="padding-top: 10px; color: red;">
-                            {{ error }}
-                          </p>
-                        </div>
+                    <div class="col-6 col-md-4">
+                      <ul class="list-unstyled mb-4" style="text-align: right;">
+                          <li>$$</li>
+                          <li>6$ </li>
+                          <li>$$</li>
 
-                    </form>
+                      </ul>
+                    </div>
+                    </div>
+
+                      <a href="https://www.totoprayogo.com" target="_blank" class="btn  mb-3" style="background-color: black;color: white;margin-top:50px ">CHECKOUT</a>
                   </div>
-                </div>
-              </div><!-- /.col-->
-        <div class="col-xs-12 col-md-4" >
-          <div class="card" style="width: 18rem;" *ngIf="loaded">
+              </div>
+              </div>
+            </div>
+          
 
-          </div>
-        </div>
-        <div class="col-xs-12 col-md-4" >
-          <div class="card" style="width: 18rem;" *ngIf="loaded">
-            <div class="card-body">
-              <h4 class="card-title"></h4>
-              <h5 class="card-title">By: <span style="color:lightseagreen"></span></h5>
-              <p class="card-text"></p>
 
+        <div class="col-12 col-sm-6 col-md-8">
+          <div class="container" style="margin-top: 50px">
+              <table id="cart" class="table table-condensed" style="border-radius: 15px;background-color: white;color: black">
+                        <thead style="background-color: #b2612e;border-radius: 15px">
+                        <tr>
+                          <th style="width:50%">Product</th>
+                          <th style="width:10%">Price</th>
+                          <th style="width:8%">Quantity</th>
+                          <th style="width:22%" class="text-center">Subtotal</th>
+                          <th style="width:10%"></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-th="Product">
+                            <div class="row">
+                              <div class="col-sm-2 hidden-xs"><img src="http://placehold.it/100x100" alt="..." class="img-responsive"/></div>
+                              <div class="col-sm-10">
+                                <h4 class="nomargin">Product 1</h4>
+                                <p>Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet.</p>
+                              </div>
+                            </div>
+                          </td>
+                          <td data-th="Price">$1.99</td>
+                          <td data-th="Quantity">
+                            <input type="number" class="form-control text-center" value="1">
+                          </td>
+                          <td data-th="Subtotal" class="text-center">1.99</td>
+                          <td class="actions" data-th="">
+                           
+                            <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>								
+                          </td>
+                        </tr>
+                      </tbody>
+                      <tfoot>
+                        
+                        <tr>
+                          <td><a href="#" class="btn " style="background-color: black; color: white"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+                          <td colspan="2" class="hidden-xs"></td>
+                          <td class="hidden-xs text-center"><strong>Total $1.99</strong></td>
+         
+                        </tr>
+                      </tfoot>
+                    </table>
+            </div>
             </div>
           </div>
-        </div>
-        </div>
-        </div>
+
+
+        <div class="modal hide fade" data-backdrop="false" id="exampleModal10" tabindex="-1" role="dialog" style="z-index:1" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Payment Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="col-xs-12 col-md-8">
+                  <div class="login-panel panel panel-default">
+                    <div class="row display-tr" >
+                      <div class="display-td" >                            
+                          <img class="img-responsive pull-right" src="http://i76.imgup.net/accepted_c22e0.png">
+                      </div>
+                  </div>  
+                    <div class="panel-body">
+                      <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+                        <fieldset>
+                          <div class="form-group">
+                              <label for="cardNum">CARD NUMBER</label>
+                            <input [formControl]="cardNum" class="form-control" placeholder="Valid Card Number" type="text" autofocus="">
+                          </div>
+                          <div class="form-group">
+                              <label for="cardExpiry"><span class="hidden-xs">EXPIRATION </span>DATE</label>
+                            <input [formControl]="expiration" class="form-control" placeholder="MM / YY" type="text" value="">
+                          </div>
+                          <div class="form-group">
+                              <label for="cvcode"><span class="hidden-xs">CV </span>CODE</label>
+                            <input [formControl]="cvcode" class="form-control" placeholder="CVC" type="text" value="">
+                          </div>
+                          <div class="form-group">
+                              <label for="address">Address</label>
+                            <textarea [formControl]="address" class="form-control" type="text" value="">
+                              </textarea>
+                          </div>
+                          <button  type="submit" class="btn btn-primary">Procede payment</button>
+                        </fieldset>
+                        <div class="col-xs-12" *ngIf="errored">
+                            <p style="padding-top: 10px; color: red;">
+                              {{ error }}
+                            </p>
+                          </div>
+  
+                      </form>
+                    </div>
+                  </div>
+                </div><!-- /.col-->
+              </div>
+          
+            </div>
+          </div>
+          </div>

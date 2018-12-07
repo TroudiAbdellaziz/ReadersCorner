@@ -1,48 +1,4 @@
 
-
-
-
-<!-- ============================================================== -->
-<!-- Left Sidebar - style you can find in sidebar.scss  -->
-<!-- ============================================================== -->
-<div style="margin-bottom: 5%;" >
-<nav class="navbar navbar-expand-lg fixed-top" style="background-color: black;top:56px;font-family: Trade Gothic; font-size: 18px;color:white; text-transform: uppercase;" >
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="nav navbar-nav navbar-center">
-    
-    <li class="nav-item active">
-    
-    <a *ngIf="!path" class="nav-link" routerLink="/">      Books on sale </a>
-    </li>
-    <li class="nav-item active" >
-    <a class="nav-link" routerLink="/connexion">e-books </a>
-    </li>
-    
-    <li class="nav-item active" routerLinkActive="active">
-    <a class="nav-link "  routerLink="/signin">Read online</a>
-    </li>
-    <li class="nav-item active" routerLinkActive="active">
-        <a class="nav-link "  routerLink="/signin">contact us</a>
-      </li>
-    </ul>
-    
-    </div>
-    <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn btn-outline-info " style="background-color: black" type="submit">Search</button>
-      </form>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-
-        
-</nav>
-
-</div>
-
 <app-topper></app-topper>
 <h1 style="margin-top: 590px;font-weight: bold;font-family: Trade Gothic; font-size: 50px;color:#b2612e; text-transform: uppercase;text-align: center;">Our Books</h1>
 <div  *ngIf="updated" class="row" style="margin:60px;">     

@@ -65,8 +65,21 @@ export class OrderComponent implements OnInit {
       }else{
         this.done=true;
         document.documentElement.scrollTop = 0;
+        let data={
+          user:localStorage.getItem("user"),
+          books:this.orders,
+          price:localStorage.getItem("price"),
+          sent:false,
+          address:value.address
+        }
+        this.orderService.proceedPayment(data).subscribe((res)=>{
+          if(res.success==false){
+            this.error="we couldn't submit your order, please try again";
+            this.errored=true;}
+        })
       }
     });
+    
   }
 
 }

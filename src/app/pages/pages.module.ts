@@ -13,6 +13,8 @@ import { SignupComponent } from './component/signup/signup.component';
 import { OrderComponent } from './component/order/order.component';
 import { LoginModalComponent } from './component/login-modal/login-modal.component';
 import { TopperComponent } from './component/topper/topper.component';
+import { ContactComponent } from './component/contact/contact.component';
+import {TopbarComponent} from './component/topbar/topbar.component';
 
 @NgModule({
     imports: [
@@ -28,7 +30,9 @@ import { TopperComponent } from './component/topper/topper.component';
         LoginComponent,
         SignupComponent,
         OrderComponent,
-        LoginModalComponent
+        LoginModalComponent,
+        ContactComponent,
+        TopbarComponent
     ]
 })
 export class PagesModule { }

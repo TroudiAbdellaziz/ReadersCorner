@@ -44,10 +44,11 @@ onSubmit(email:string, password:string){
     this.errored=true;
     this.error=res.message;
   }else {
-    localStorage.setItem("user",res.user);
+    localStorage.setItem("user",res.user._id);
     localStorage.setItem("connected","true");
     this.changeDetector.markForCheck();  
     console.log(this.userConnected.emit(true));
+    console.log(localStorage.getItem("user"));
     $('.modal').hide();
   }
   

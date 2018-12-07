@@ -1,44 +1,46 @@
-/* Padding - just for asthetics on Bootsnipp.com */
-body { margin-top:20px; }
+.card-pricing.popular {
+    z-index: 1;
+    height: 350px;
+    
+}
+.card-pricing .list-unstyled li {
+    padding: .5rem 0;
+    color: #6c757d;
+}
 
-/* CSS for Credit Card Payment form */
-.credit-card-box .panel-title {
-    display: inline;
-    font-weight: bold;
-}
-.credit-card-box .form-control.error {
-    border-color: red;
-    outline: 0;
-    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(255,0,0,0.6);
-}
-.credit-card-box label.error {
-  font-weight: bold;
-  color: red;
-  padding: 2px 8px;
-  margin-top: 2px;
-}
-.credit-card-box .payment-errors {
-  font-weight: bold;
-  color: red;
-  padding: 2px 8px;
-  margin-top: 2px;
-}
-.credit-card-box label {
-    display: block;
-}
-/* The old "center div vertically" hack */
-.credit-card-box .display-table {
-    display: table;
-}
-.credit-card-box .display-tr {
-    display: table-row;
-}
-.credit-card-box .display-td {
-    display: table-cell;
+.table>tbody>tr>td, .table>tfoot>tr>td{
     vertical-align: middle;
-    width: 50%;
 }
-/* Just looks nicer */
-.credit-card-box .panel-heading img {
-    min-width: 180px;
+@media screen and (max-width: 600px) {
+    table#cart tbody td .form-control{
+		width:20%;
+		display: inline !important;
+	}
+	.actions .btn{
+		width:36%;
+		margin:1.5em 0;
+	}
+	
+	.actions .btn-info{
+		float:left;
+	}
+	.actions .btn-danger{
+		float:right;
+	}
+	
+	table#cart thead { display: none; }
+	table#cart tbody td { display: block; padding: .6rem; min-width:320px;}
+	table#cart tbody tr td:first-child { background: #333; color: #fff; }
+	table#cart tbody td:before {
+		content: attr(data-th); font-weight: bold;
+		display: inline-block; width: 8rem;
+	}
+	
+	
+	
+	table#cart tfoot td{display:block; }
+	table#cart tfoot td .btn{display:block;}
+	
 }
+
+

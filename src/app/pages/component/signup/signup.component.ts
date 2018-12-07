@@ -54,10 +54,11 @@ export class SignupComponent implements OnInit {
       this.errored=true;
       this.error="an error has occured while registring, please try again";
     }else {
-      localStorage.setItem("user",res.user);
+      localStorage.setItem("user",res.user._id);
       localStorage.setItem("connected","true");
       this.changeDetector.markForCheck();  
       console.log(this.userConnected.emit(true));
+      console.log(localStorage.getItem("user"));
       $('.modal').hide();
     }
   });
