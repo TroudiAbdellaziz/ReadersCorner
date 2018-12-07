@@ -26,13 +26,13 @@
             <div class="form-group">
               <input [formControl]="cpassword" class="form-control" placeholder="Confirm Password" type="password" value="">
             </div>
-            <button  type="submit" class="btn btn-primary">Register</button>
+            <button  type="submit" [disabled]="!form.valid" class="btn btn-primary">Register</button>
           </fieldset>
         </form>
       </div>
       <div class="modal-footer">
         <span>you already have an account? </span>
-        <button type="button" [disabled]="!form.valid" class="btn btn-success"  (click)="openRegister()" data-toggle="modal" data-target="#exampleModal8">login</button>
+        <button type="button"  class="btn btn-success"  (click)="openRegister()" data-toggle="modal" data-target="#exampleModal5">login</button>
       </div>
   
     </div>

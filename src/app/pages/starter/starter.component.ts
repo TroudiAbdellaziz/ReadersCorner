@@ -39,4 +39,5 @@ export class StarterComponent implements AfterViewInit {
 		});
 	}
 	ngAfterViewInit() { }
+	changed(ch:string){}
 }

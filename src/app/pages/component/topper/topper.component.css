@@ -1,0 +1,30 @@
+.img1{
+    background-image: url("../../../../assets/images/background/books.jpg");
+    height: 500px;
+    margin-top: 80px;
+    display: block;
+    background-size: 100% 100%;
+}
+
+.img2{
+    background-image: url("../../../../assets/images/background/royal.jpg");
+    height: 500px;
+    margin-top: 80px;
+    background-size: 100% 100%;
+}
+
+.img3{
+    background-image: url("../../../../assets/images/background/typewriter.jpg");
+    height: 500px;
+    margin-top: 80px;
+    background-size: 100% 100%;
+}
+#grid {
+    grid-column-gap: 20px;
+  }#grid {
+    display: grid;
+    
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 100px;
+    column-gap: 20px;
+  }

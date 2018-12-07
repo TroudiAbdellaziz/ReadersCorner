@@ -12,6 +12,7 @@ import { LoginComponent } from './component/login/login.component';
 import { SignupComponent } from './component/signup/signup.component';
 import { OrderComponent } from './component/order/order.component';
 import { LoginModalComponent } from './component/login-modal/login-modal.component';
+import { TopperComponent } from './component/topper/topper.component';
 
 @NgModule({
     imports: [

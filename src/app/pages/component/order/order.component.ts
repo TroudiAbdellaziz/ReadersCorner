@@ -9,6 +9,8 @@ import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/form
   styleUrls: ['./order.component.css']
 })
 export class OrderComponent implements OnInit {
+  public orders:Array<string>=[];
+  public books:Array<any>=[];
   public form:FormGroup;
   public errored:boolean=false;
   public done:boolean=false;
@@ -33,20 +35,23 @@ export class OrderComponent implements OnInit {
       this.cvcode = this.form.controls['cvcode'];
       this.address = this.form.controls['address'];
       this.expiration = this.form.controls['expiration'];
+      if (localStorage.getItem("orders"))
+      this.orders=localStorage.getItem("orders").split(":");
+      console.log(this.orders);
 
   }
 
   ngOnInit() {
     let self = this;
     console.log(this.loaded);
-    this.route.params.subscribe((params) => {
-    this.bookService.getBookById(params['id']).subscribe((res)=>{
-      self.book=res.book;
-      console.log(res);
-      self.loaded=true;
-    })
     
-    });
+    for(var i=0;i<this.orders.length;i++){
+      this.bookService.getBookById(self.orders[i]).subscribe((res)=>{
+        console.log(self.orders[1]);
+        self.books.push(res.book);
+        console.log(self.books);
+      })
+    }
   }
   onSubmit(value:any){
     console.log("here");

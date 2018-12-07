@@ -1,39 +1,60 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { CartService } from '../../services/cart.service'
 @Component({
   selector: 'ap-navigation',
   templateUrl: './navigation.component.html'
 })
 export class NavigationComponent implements AfterViewInit {
+
   name: string;
   showHide: boolean;
-  public isConnected:Boolean
-  public connect:Boolean=false;
-  constructor() {
-    this.isConnected=localStorage.getItem("user")!=null;
+  public isConnected: Boolean
+  public connect: Boolean = false;
+  public price: string = "0";
+  constructor(private cartService: CartService) {
+    this.isConnected = localStorage.getItem("user") != null;
+    if (this.isConnected)
+    this.price=localStorage.getItem("price");
     this.showHide = true;
   }
 
   changeShowStatus() {
     this.showHide = !this.showHide;
   }
-  changed(ch:boolean){
-    this.isConnected=true;
+  changed(ch: boolean) {
+    this.isConnected = true;
+    console.log("changed");
   }
-logout(){
-  localStorage.removeItem("user");
-  console.log("logged out");
-  this.isConnected=false;
-}
+  ngOnInit() {
+    this.cartService.change.subscribe(object => {
+    this.price = (parseInt(this.price) + parseInt(object.price)).toString();
+      console.log(this.price);
+      localStorage.setItem("price", this.price);
+      if (localStorage.getItem("orders")){
+        localStorage.setItem("orders",localStorage.getItem("orders")+":"+object.id);
+      }else {
+        localStorage.setItem("orders",object.id);
+      }
+    });
+  }
+  changed2(ch: boolean) {
+    this.isConnected = true;
+  }
+  logout() {
+    localStorage.removeItem("user");
+    localStorage.removeItem("price");
+    this.price = "0";
+    this.isConnected = false;
+  }
   ngAfterViewInit() {
- 
 
-    $(function() {
+
+    $(function () {
       $('.preloader').fadeOut();
     });
 
-    const set = function() {
+    const set = function () {
       const width =
         window.innerWidth > 0 ? window.innerWidth : this.screen.width;
       const topOffset = 60;
@@ -62,13 +83,13 @@ logout(){
     $(window).ready(set);
     $(window).on('resize', set);
 
-    $(document).on('click', '.mega-dropdown', function(e) {
+    $(document).on('click', '.mega-dropdown', function (e) {
       e.stopPropagation();
     });
 
     $('.search-box a, .search-box .app-search .srh-btn').on(
       'click',
-      function() {
+      function () {
         $('.app-search').toggle(200);
       }
     );

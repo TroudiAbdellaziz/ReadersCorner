@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, Input,Output, EventEmitter, ChangeDetectorRef} from '@angular/core';
+import {CartService} from '../../../services/cart.service'
 @Component({
   selector: 'a-book',
   templateUrl: './book.component.html',
@@ -7,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   inputs: ['book']
 })
 export class BookComponent implements OnInit {
+
+  
   public book:any;
-  constructor() { }
+  constructor(private changeDetector:ChangeDetectorRef,
+              private cartService:CartService
+              ) { }
 
   ngOnInit() {
   }
-
+  addToCart(){
+    this.cartService.add({
+      id:this.book._id,
+      price:this.book.price
+    });
+    
+  }
 }

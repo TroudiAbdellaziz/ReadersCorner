@@ -1,4 +1,4 @@
-import { Component, OnInit,Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit,Input, Output, EventEmitter, ChangeDetectorRef } from '@angular/core';
 
 import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/forms';
 import {UserService} from './../../../services/user.service'
@@ -25,7 +25,7 @@ export class SignupComponent implements OnInit {
   @Output() userConnected = new EventEmitter<boolean>();
 
   constructor(private fb:FormBuilder, private userService:UserService,
-              private router:Router) { 
+              private router:Router, private changeDetector:ChangeDetectorRef) { 
     this.form = fb.group({
       'fname': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
       'lname': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
@@ -56,7 +56,8 @@ export class SignupComponent implements OnInit {
     }else {
       localStorage.setItem("user",res.user);
       localStorage.setItem("connected","true");
-      this.userConnected.emit(true);
+      this.changeDetector.markForCheck();  
+      console.log(this.userConnected.emit(true));
       $('.modal').hide();
     }
   });

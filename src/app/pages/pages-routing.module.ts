@@ -12,7 +12,7 @@ const routes: Routes = [
             { path: 'starter', loadChildren: './starter/starter.module#StarterModule' },
             { path: 'login', component: LoginComponent},
             { path: 'signup', component: SignupComponent},
-            { path: 'order/:id', component: OrderComponent}
+            { path: 'order', component: OrderComponent}
                 ]
     }
     
