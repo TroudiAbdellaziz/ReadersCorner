@@ -17,4 +17,7 @@ export class OrderService {
   proceedPayment(values:any){
     return this.http.post<any>('http://localhost:3000/orders/order',values);
   }
+  getOrders(){
+    return this.http.get<any>('http://localhost:3000/orders/getorders');
+  }
 }

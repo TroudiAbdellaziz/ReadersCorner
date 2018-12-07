@@ -15,7 +15,7 @@ import { LoginModalComponent } from './component/login-modal/login-modal.compone
 import { TopperComponent } from './component/topper/topper.component';
 import { ContactComponent } from './component/contact/contact.component';
 import {TopbarComponent} from './component/topbar/topbar.component';
-
+import {AdminComponent} from '../admin/admin.component';
 @NgModule({
     imports: [
         CommonModule,
@@ -32,7 +32,8 @@ import {TopbarComponent} from './component/topbar/topbar.component';
         OrderComponent,
         LoginModalComponent,
         ContactComponent,
-        TopbarComponent
+        TopbarComponent,
+        AdminComponent
     ]
 })
 export class PagesModule { }

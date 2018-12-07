@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { AdminComponent } from './admin/admin.component';
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, FormsModule, HttpClientModule, AppRoutingModule],

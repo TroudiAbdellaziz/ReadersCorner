@@ -5,6 +5,7 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import {LoginComponent} from '../pages/component/login/login.component';
 import {SignupComponent} from '../pages/component/signup/signup.component';
 import {OrderComponent} from '../pages/component/order/order.component';
+import {AdminComponent} from '../../app/admin/admin.component';
 const routes: Routes = [
     {
         path: '', component: PageComponent,
@@ -12,9 +13,10 @@ const routes: Routes = [
             { path: 'starter', loadChildren: './starter/starter.module#StarterModule' },
             { path: 'login', component: LoginComponent},
             { path: 'signup', component: SignupComponent},
-            { path: 'order', component: OrderComponent}
+            { path: 'order', component: OrderComponent},
                 ]
-    }
+    },
+    { path: 'admin',component : AdminComponent}
     
 ];
 
