@@ -1,0 +1,36 @@
+<div class="modal hide fade" data-backdrop="false" id="exampleModal25" tabindex="-1" role="dialog" style="z-index:1" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Settings</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+          <fieldset>
+            <label>change your password</label>
+            <div class="form-group">
+                <input [formControl]="ypassword" class="form-control" placeholder="Current password" type="password" autofocus="">
+              </div>
+            <div class="form-group">
+              <input [formControl]="password" class="form-control" placeholder="new password" type="password" autofocus="">
+            </div>
+            <div class="form-group">
+              <input [formControl]="cpassword" class="form-control" placeholder="Re-enter Password" type="password" value="">
+            </div>
+            <button type="submit" [disabled]="!form.valid" class="btn btn-primary">Update password</button>
+          </fieldset>
+          <div class="col-xs-12" *ngIf="errored">
+              <p style="padding-top: 10px; color: red;">
+                {{ error }}
+              </p>
+            </div>
+        </form>
+      </div>
+  
+    </div>
+  </div>
+  </div>

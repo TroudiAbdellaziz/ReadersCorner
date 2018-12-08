@@ -16,4 +16,7 @@ export class UserService {
     console.log("signing up");
       return this.http.post<any>('http://localhost:3000/user/signup',data);  
   }
+  checkpass(data:any){
+    return this.http.post<any>('http://localhost:3000/user/checkPassAndChange',data);
+  }
 }

@@ -16,6 +16,7 @@ import { TopperComponent } from './component/topper/topper.component';
 import { ContactComponent } from './component/contact/contact.component';
 import {TopbarComponent} from './component/topbar/topbar.component';
 import {AdminComponent} from '../admin/admin.component';
+import { SettingsComponent } from './component/settings/settings.component';
 @NgModule({
     imports: [
         CommonModule,
@@ -33,7 +34,8 @@ import {AdminComponent} from '../admin/admin.component';
         LoginModalComponent,
         ContactComponent,
         TopbarComponent,
-        AdminComponent
+        AdminComponent,
+        SettingsComponent
     ]
 })
 export class PagesModule { }

@@ -16,7 +16,7 @@
               <a class="nav-link" style="color:black;font-weight: bold;font-family: Trade Gothic;font-size: 20px" routerLink="/order">{{price}} $</a>
             </li>
             <li class="nav-item active" >
-              <a class="nav-link" style="color:black;font-weight: bold;font-family: Trade Gothic;font-size: 20px" routerLink="/connexion">Settings </a>
+              <a class="nav-link" style="cursor: pointer;font-weight: bold; color:black;font-size: 20px; font-family: Trade Gothic " data-toggle="modal" data-target="#exampleModal25">Settings </a>
             </li>
             <li class="nav-item active" >
                 <a class="nav-link" *ngIf="!isConnected" id="loginLi"  data-toggle="modal" data-target="#exampleModal5" style="cursor: pointer;font-weight: bold; color:black;font-size: 20px; font-family: Trade Gothic ">Login </a>
@@ -35,5 +35,6 @@
 
       <app-signup [(connect)]="connect" (userConnected)="changed2($event)"></app-signup>
 <app-login-modal [(connect)]="connect" (userConnected)="changed($event)"></app-login-modal>
+<app-settings></app-settings>
 
         
