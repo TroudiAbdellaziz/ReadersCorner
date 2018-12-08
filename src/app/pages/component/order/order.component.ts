@@ -64,6 +64,7 @@ export class OrderComponent implements OnInit {
     console.log("here");
     this.errored = false;
     this.done = false;
+    let self=this;
     let values = { cardNum: value.cardNum, expiration: value.expiration, cvCode: value.cvcode };
     this.orderService.verifyCard(values).subscribe((res) => {
       if (res.success == false) {
@@ -80,10 +81,11 @@ export class OrderComponent implements OnInit {
           sent: false,
           address: value.address
         }
-        this.orderService.proceedPayment(data).subscribe((res) => {
+        console.log("there");
+        self.orderService.proceedPayment(data).subscribe((res) => {
           if (res.success == false) {
-            this.error = "we couldn't submit your order, please try again";
-            this.errored = true;
+            self.error = "we couldn't submit your order, please try again";
+            self.errored = true;
           } else {
             $(".modal").hide();
           }
