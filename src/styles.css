@@ -24,3 +24,6 @@ body{
     transform: translatex(-50%);
 }
 
+.modal-open {
+	overflow:scroll !important;
+  }

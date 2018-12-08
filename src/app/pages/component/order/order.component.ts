@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderService } from '../../../services/order.service';
 import { BookService } from '../../../services/book.service';
+import { CartService} from '../../../services/cart.service'
 import { Router, ActivatedRoute } from '@angular/router';
 import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/forms';
 @Component({
@@ -15,6 +16,8 @@ export class OrderComponent implements OnInit {
   public errored:boolean=false;
   public done:boolean=false;
   public error:String="";
+  public price:string;
+  public finalPrice:string;
   
   public cardNum:AbstractControl;
   public expiration:AbstractControl;
@@ -22,7 +25,7 @@ export class OrderComponent implements OnInit {
   public address:AbstractControl;
   public book:any;
   public loaded:boolean=false;
-  constructor(private fb:FormBuilder,
+  constructor(private fb:FormBuilder, private cartService:CartService,
     private route: ActivatedRoute,private orderService: OrderService, private bookService: BookService) {
 
       this.form = fb.group({
@@ -37,6 +40,9 @@ export class OrderComponent implements OnInit {
       this.expiration = this.form.controls['expiration'];
       if (localStorage.getItem("orders"))
       this.orders=localStorage.getItem("orders").split(":");
+      this.price=localStorage.getItem("price");
+      
+      this.finalPrice=(parseInt(this.price)+6).toString();
       console.log(this.orders);
 
   }
@@ -47,9 +53,10 @@ export class OrderComponent implements OnInit {
     
     for(var i=0;i<this.orders.length;i++){
       this.bookService.getBookById(self.orders[i]).subscribe((res)=>{
-        console.log(self.orders[1]);
+        console.log(self.orders[i]);
         self.books.push(res.book);
         console.log(self.books);
+        this.loaded=true;
       })
     }
   }
@@ -61,6 +68,7 @@ export class OrderComponent implements OnInit {
     this.orderService.verifyCard(values).subscribe((res)=>{
       if(res.success==false){
         this.error="please provide correct payment details";
+       
         this.errored=true;
       }else{
         this.done=true;
@@ -75,10 +83,36 @@ export class OrderComponent implements OnInit {
         this.orderService.proceedPayment(data).subscribe((res)=>{
           if(res.success==false){
             this.error="we couldn't submit your order, please try again";
-            this.errored=true;}
+           
+            
+            this.errored=true;}else{
+              $(".modal").hide();
+            }
         })
       }
     });
+    
+  }
+
+  removeItem(item:any){
+    console.log("click");
+    console.log(item);
+    console.log(item.path[2].id);
+    $(item.path[3]).remove();
+
+    for(var i=0;i<this.books.length;i++){
+      if((item.path[2].id.toString().indexOf(this.books[i]._id)>-1)||
+      (item.path[3].id.toString().indexOf(this.books[i]._id)>-1)){
+        this.price=(parseInt(this.price)-parseInt(this.books[i].price)).toString();
+        localStorage.setItem("price",this.price);
+        this.finalPrice=(parseInt(this.price)+6).toString();
+        this.books.splice(i,1);
+        this.orders.splice(i,1);
+        localStorage.setItem("orders",this.orders.join(":"));
+        console.log(this.books);
+        this.cartService.add({price:"0"});
+      }
+    }
     
   }
 

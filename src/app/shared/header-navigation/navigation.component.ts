@@ -14,8 +14,12 @@ export class NavigationComponent implements AfterViewInit {
   public price: string = "0";
   constructor(private cartService: CartService) {
     this.isConnected = localStorage.getItem("user") != null;
-    if (this.isConnected)
-    this.price=localStorage.getItem("price");
+    if (this.isConnected){
+    this.price=localStorage.getItem("price");}
+    else 
+    {
+      localStorage.setItem("price","0");
+    }
     this.showHide = true;
   }
 
@@ -28,14 +32,15 @@ export class NavigationComponent implements AfterViewInit {
   }
   ngOnInit() {
     this.cartService.change.subscribe(object => {
-    this.price = (parseInt(this.price) + parseInt(object.price)).toString();
+    this.price = (parseInt(localStorage.getItem("price")) + parseInt(object.price)).toString();
       console.log(this.price);
       localStorage.setItem("price", this.price);
+      if(object.id){
       if (localStorage.getItem("orders")){
         localStorage.setItem("orders",localStorage.getItem("orders")+":"+object.id);
       }else {
         localStorage.setItem("orders",object.id);
-      }
+      }}
     });
     this.cartService.notification.subscribe(object =>{
       console.log("here");
@@ -49,6 +54,8 @@ export class NavigationComponent implements AfterViewInit {
     localStorage.removeItem("user");
     localStorage.removeItem("price");
     this.price = "0";
+    localStorage.setItem("price", "0");
+    localStorage.removeItem("orders");
     this.isConnected = false;
   }
   ngAfterViewInit() {

@@ -49,7 +49,7 @@ onSubmit(email:string, password:string){
     this.changeDetector.markForCheck();  
     console.log(this.userConnected.emit(true));
     console.log(localStorage.getItem("user"));
-    $('.modal').hide();
+    $('.modal').remove();
   }
   
 });

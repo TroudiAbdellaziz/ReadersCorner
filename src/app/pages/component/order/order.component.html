@@ -18,15 +18,15 @@
                     </div>
                     <div class="col-6 col-md-4">
                       <ul class="list-unstyled mb-4" style="text-align: right;">
-                          <li>$$</li>
+                          <li>{{price}} $</li>
                           <li>6$ </li>
-                          <li>$$</li>
+                          <li>{{finalPrice}} $</li>
 
                       </ul>
                     </div>
                     </div>
 
-                      <a href="https://www.totoprayogo.com" target="_blank" class="btn  mb-3" style="background-color: black;color: white;margin-top:50px ">CHECKOUT</a>
+                      <a data-toggle="modal" href="#exampleModal10" target="_blank" class="btn  mb-3" style="background-color: black;color: white;margin-top:50px ">CHECKOUT</a>
                   </div>
               </div>
               </div>
@@ -46,34 +46,34 @@
                           <th style="width:10%"></th>
                         </tr>
                       </thead>
-                      <tbody>
-                        <tr>
+                      <tbody *ngFor="let book of books">
+                        <tr id={{book._id}}>
                           <td data-th="Product">
                             <div class="row">
-                              <div class="col-sm-2 hidden-xs"><img src="http://placehold.it/100x100" alt="..." class="img-responsive"/></div>
+                              <div class="col-sm-2 hidden-xs"><img src="../../../../assets/images/{{book.picture}}" alt="..." class="img-responsive"/></div>
                               <div class="col-sm-10">
-                                <h4 class="nomargin">Product 1</h4>
-                                <p>Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet.</p>
+                                <h4 class="nomargin">{{book.title}}</h4>
+                                <p>{{book.description}}</p>
                               </div>
                             </div>
                           </td>
-                          <td data-th="Price">$1.99</td>
+                          <td data-th="Price">{{book.price}}</td>
                           <td data-th="Quantity">
-                            <input type="number" class="form-control text-center" value="1">
+                            <input type="number" id="mynum" class="form-control text-center" value="1">
                           </td>
-                          <td data-th="Subtotal" class="text-center">1.99</td>
+                          <td data-th="Subtotal" class="text-center">{{book.price}}</td>
                           <td class="actions" data-th="">
                            
-                            <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>								
+                            <button class="btn btn-danger btn-sm" (click)="removeItem($event)"><i class="fa fa-trash-o"></i></button>								
                           </td>
                         </tr>
                       </tbody>
                       <tfoot>
                         
                         <tr>
-                          <td><a href="#" class="btn " style="background-color: black; color: white"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+                          <td><a routerLink="/starter" class="btn " style="background-color: black; color: white"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
                           <td colspan="2" class="hidden-xs"></td>
-                          <td class="hidden-xs text-center"><strong>Total $1.99</strong></td>
+                          <td class="hidden-xs text-center"><strong>Total {{finalPrice}} $</strong></td>
          
                         </tr>
                       </tfoot>
@@ -138,3 +138,22 @@
             </div>
           </div>
           </div>
+
+          <div id="successModal" class="modal fade">
+            <div class="modal-dialog modal-confirm">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <div class="icon-box">
+                    <i class="material-icons">&#xE876;</i>
+                  </div>				
+                  <h4 class="modal-title">Awesome!</h4>	
+                </div>
+                <div class="modal-body">
+                  <p class="text-center">Your order has been confirmed. Check your email for detials.</p>
+                </div>
+                <div class="modal-footer">
+                  <button class="btn btn-success btn-block" data-dismiss="modal">OK</button>
+                </div>
+              </div>
+            </div>
+          </div> 
