@@ -16,7 +16,12 @@ export class OrderService {
   }
   proceedPayment(values:any){
     console.log("here");
-    return this.http.post<any>('http://localhost:3000/orders/order',values);
+    this.http.post<any>('http://localhost:3000/orders/order',values).toPromise().then( (res)=>{
+console.log("herrrrrrr");
+   }
+   
+ );
+
   }
   getOrders(){
     return this.http.get<any>('http://localhost:3000/orders/getorders');

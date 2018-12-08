@@ -4,6 +4,7 @@ import { BookService } from '../../../services/book.service';
 import { CartService } from '../../../services/cart.service'
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, AbstractControl, FormBuilder, Validators } from '@angular/forms';
+import { UserService } from '../../../services/user.service';
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
@@ -18,6 +19,7 @@ export class OrderComponent implements OnInit {
   public error: String = "";
   public price: string;
   public finalPrice: string;
+  public booksNames: Array<string> = [];
 
   public cardNum: AbstractControl;
   public expiration: AbstractControl;
@@ -25,7 +27,7 @@ export class OrderComponent implements OnInit {
   public address: AbstractControl;
   public book: any;
   public loaded: boolean = false;
-  constructor(private fb: FormBuilder, private cartService: CartService,
+  constructor(private fb: FormBuilder, private cartService: CartService, private userService:UserService,
     private route: ActivatedRoute, private orderService: OrderService, private bookService: BookService) {
 
     this.form = fb.group({
@@ -55,6 +57,7 @@ export class OrderComponent implements OnInit {
       this.bookService.getBookById(self.orders[i]).subscribe((res) => {
         console.log(self.orders[i]);
         self.books.push(res.book);
+        self.booksNames.push(res.book.title);
         console.log(self.books);
         this.loaded = true;
       })
@@ -79,17 +82,15 @@ export class OrderComponent implements OnInit {
           books: this.orders,
           price: localStorage.getItem("price"),
           sent: false,
-          address: value.address
+          address: value.address,
+          booksNames: this.booksNames
         }
         console.log("there");
-        self.orderService.proceedPayment(data).subscribe((res) => {
-          if (res.success == false) {
-            self.error = "we couldn't submit your order, please try again";
-            self.errored = true;
-          } else {
-            $(".modal").hide();
-          }
-        })
+        this.orderService.proceedPayment(data);
+        localStorage.setItem("price","0");
+        localStorage.removeItem("orders");
+        this.cartService.add({price:"0"});
+        $('.modal').hide();
       }
     });
 

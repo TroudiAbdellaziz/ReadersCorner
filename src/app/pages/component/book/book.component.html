@@ -7,9 +7,6 @@
         <p class="card-text"style="color:black;font-size: 15px;">{{book.description}}</p>
         <a  *ngIf="!book.soldOut" (click)="addToCart()" class="btn btn-primary " style="background-color: black">Add to cart ({{book.price}}$)</a>
         <a  *ngIf="book.soldOut"  class="btn btn-primary disabled" style="background-color: black" aria-disabled="true">Sold Out</a>
-        <ul *ngFor="let lan of book.languages" style="display: inline;">
-          <li class="btn btn-info btn-sm" >{{lan}}</li>
-        </ul>
       </div>
     </div>
 </div>
