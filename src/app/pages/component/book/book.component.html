@@ -1,12 +1,12 @@
 <div class="col-4" >
-  <div class="card" style="width: 27rem; height: 45rem;font-family: Trade Gothic">
-      <img class="card-img-top" src="/assets/images/{{book.picture}}" alt="Card image cap" style="height: 700px; ">
+  <div class="card">
+      <img class="card-img-top" src="/assets/images/{{book.picture}}" alt="Card image cap" >
       <div class="card-body">
-        <h4 class="card-title" style="font-weight: bold;font-family: Trade Gothic; font-size: 25px;color:black; text-transform: uppercase;text-align: center;margin: 20px">{{book.title}}</h4>
-        <h5 class="card-title">By: <span style="color:black; text-transform: uppercase;">{{book.author}}</span></h5>
-        <p class="card-text"style="color:black;font-size: 15px;">{{book.description}}</p>
-        <a  *ngIf="!book.soldOut" (click)="addToCart()" class="btn btn-primary " style="background-color: black">Add to cart ({{book.price}}$)</a>
-        <a  *ngIf="book.soldOut"  class="btn btn-primary disabled" style="background-color: black" aria-disabled="true">Sold Out</a>
+        <h4 class="card-title-1" >{{book.title}}</h4>
+        <h5 class="card-title-2">By: <span >{{book.author}}</span></h5>
+        <p class="card-text">{{book.description}}</p>
+        <a  *ngIf="!book.soldOut" (click)="addToCart()" class="btn btn-primary ">Add to cart ({{book.price}}$)</a>
+        <a  *ngIf="book.soldOut"  class="btn btn-primary disabled" aria-disabled="true">Sold Out</a>
       </div>
     </div>
 </div>

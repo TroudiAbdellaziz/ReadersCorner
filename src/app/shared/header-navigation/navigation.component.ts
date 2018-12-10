@@ -28,12 +28,10 @@ export class NavigationComponent implements AfterViewInit {
   }
   changed(ch: boolean) {
     this.isConnected = true;
-    console.log("changed");
   }
   ngOnInit() {
     this.cartService.change.subscribe(object => {
     this.price = (parseInt(localStorage.getItem("price")) + parseInt(object.price)).toString();
-      console.log(this.price);
       localStorage.setItem("price", this.price);
       if(object.id){
       if (localStorage.getItem("orders")){
@@ -43,7 +41,6 @@ export class NavigationComponent implements AfterViewInit {
       }}
     });
     this.cartService.notification.subscribe(object =>{
-      console.log("here");
       $('loginLi').data('toggle');
     });
   }

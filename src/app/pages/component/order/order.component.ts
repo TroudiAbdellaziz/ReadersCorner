@@ -27,7 +27,7 @@ export class OrderComponent implements OnInit {
   public address: AbstractControl;
   public book: any;
   public loaded: boolean = false;
-  constructor(private fb: FormBuilder, private cartService: CartService, private userService:UserService,
+  constructor(private fb: FormBuilder, private cartService: CartService, private userService: UserService,
     private route: ActivatedRoute, private orderService: OrderService, private bookService: BookService) {
 
     this.form = fb.group({
@@ -45,29 +45,24 @@ export class OrderComponent implements OnInit {
     this.price = localStorage.getItem("price");
 
     this.finalPrice = (parseInt(this.price) + 6).toString();
-    console.log(this.orders);
 
   }
 
   ngOnInit() {
     let self = this;
-    console.log(this.loaded);
 
     for (var i = 0; i < this.orders.length; i++) {
       this.bookService.getBookById(self.orders[i]).subscribe((res) => {
-        console.log(self.orders[i]);
         self.books.push(res.book);
         self.booksNames.push(res.book.title);
-        console.log(self.books);
         this.loaded = true;
       })
     }
   }
   onSubmit(value: any) {
-    console.log("here");
     this.errored = false;
     this.done = false;
-    let self=this;
+    let self = this;
     let values = { cardNum: value.cardNum, expiration: value.expiration, cvCode: value.cvcode };
     this.orderService.verifyCard(values).subscribe((res) => {
       if (res.success == false) {
@@ -85,11 +80,10 @@ export class OrderComponent implements OnInit {
           address: value.address,
           booksNames: this.booksNames
         }
-        console.log("there");
         this.orderService.proceedPayment(data);
-        localStorage.setItem("price","0");
+        localStorage.setItem("price", "0");
         localStorage.removeItem("orders");
-        this.cartService.add({price:"0"});
+        this.cartService.add({ price: "0" });
         $('.modal').hide();
       }
     });
@@ -97,9 +91,6 @@ export class OrderComponent implements OnInit {
   }
 
   removeItem(item: any) {
-    console.log("click");
-    console.log(item);
-    console.log(item.path[2].id);
     $(item.path[3]).remove();
 
     for (var i = 0; i < this.books.length; i++) {
@@ -111,7 +102,6 @@ export class OrderComponent implements OnInit {
         this.books.splice(i, 1);
         this.orders.splice(i, 1);
         localStorage.setItem("orders", this.orders.join(":"));
-        console.log(this.books);
         this.cartService.add({ price: "0" });
       }
     }

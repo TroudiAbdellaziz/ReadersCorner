@@ -24,7 +24,7 @@
             <button type="submit" [disabled]="!form.valid" class="btn btn-primary">Update password</button>
           </fieldset>
           <div class="col-xs-12" *ngIf="errored">
-              <p style="padding-top: 10px; color: red;">
+              <p class="error-class">
                 {{ error }}
               </p>
             </div>

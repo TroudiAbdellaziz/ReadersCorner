@@ -36,8 +36,6 @@ export class LoginModalComponent implements OnInit {
   ngOnInit() {
   }
 onSubmit(email:string, password:string){
-  console.log("here");
-  console.log(email+" "+password);
   this.userService.login({email:email,password:password}).subscribe((res)=>
 {
   if (res.success==false){
@@ -46,9 +44,7 @@ onSubmit(email:string, password:string){
   }else {
     localStorage.setItem("user",res.user._id);
     localStorage.setItem("connected","true");
-    this.changeDetector.markForCheck();  
-    console.log(this.userConnected.emit(true));
-    console.log(localStorage.getItem("user"));
+    this.changeDetector.markForCheck();
     $('.modal').remove();
   }
   

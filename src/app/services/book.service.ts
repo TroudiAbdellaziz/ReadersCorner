@@ -21,7 +21,6 @@ export class BookService {
       var formData: any = new FormData();
       var xhr = new XMLHttpRequest();
     formData.append("title",values.title);
-
     formData.append("author",values.author);
     formData.append("price",values.price);
     formData.append("author",values.author);

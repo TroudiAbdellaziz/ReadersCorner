@@ -27,7 +27,7 @@ export class SettingsComponent implements OnInit {
   ngOnInit() {
   }
 onSubmit(object:any){
-  //needs to be hashed before being sent
+  //passwords needs to be hashed before being sent
 this.userService.checkpass({password:object.ypassword, id:localStorage.getItem("user"),newpassword:object.password}).subscribe(
 (res)=>{
   if (res.status==true){

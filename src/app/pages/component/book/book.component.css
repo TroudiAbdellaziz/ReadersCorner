@@ -1,5 +1,11 @@
+.card{
+    width: 27rem;
+     height: 45rem;
+     font-family: Trade Gothic
+}
 .card-img-top{
     max-height: 370px;
+    height: 700px;
 
 }
 ul {
@@ -19,4 +25,23 @@ li {
     
     text-decoration: none;
 }
-
+.card-title-1{
+    font-weight: bold;
+    font-family: Trade Gothic;
+     font-size: 25px;
+     color:black; 
+     text-transform: uppercase;
+     text-align: center;
+    margin: 20px
+}
+.card-title-2{
+    color:black;
+     text-transform: uppercase;
+}
+.card-text{
+    color:black;
+    font-size: 15px;
+}
+a{
+    background-color: black
+}

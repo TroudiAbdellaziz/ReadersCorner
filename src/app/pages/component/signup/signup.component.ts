@@ -46,7 +46,6 @@ export class SignupComponent implements OnInit {
   }
   public onSubmit(values:Object):void {
     this.errored=false;
-    console.log(values);
     this.userService.signup(values).subscribe((res)=>
   
   {
@@ -57,8 +56,6 @@ export class SignupComponent implements OnInit {
       localStorage.setItem("user",res.user._id);
       localStorage.setItem("connected","true");
       this.changeDetector.markForCheck();  
-      console.log(this.userConnected.emit(true));
-      console.log(localStorage.getItem("user"));
       $('.modal').hide();
     }
   });
